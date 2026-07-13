@@ -1,0 +1,33 @@
+---
+description: Portfolio project conventions and stack guidelines
+globs:
+alwaysApply: true
+---
+
+# Portfolio Project Rules
+
+## Stack
+
+- **Next.js** (App Router)
+- **TypeScript**
+- **Tailwind CSS**
+- **Framer Motion**
+
+## Content
+
+- All resume and portfolio content lives in `/data` (`content.ts`).
+- **Never hardcode resume text inside components** — import from `/data` instead.
+
+## Design
+
+- Mobile-first, fully responsive design.
+- Use semantic HTML and accessible markup: alt text, `aria-label`s, and proper heading hierarchy.
+
+## Animations
+
+- Keep animations performant — prefer `transform` and `opacity`; avoid layout-thrashing props (e.g. `width`, `height`, `top`, `left`).
+- Respect `prefers-reduced-motion` for all Framer Motion animations.
+
+## Dependencies
+
+- No unused dependencies — keep the bundle lean for fast load times.
