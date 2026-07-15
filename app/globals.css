@@ -1,25 +1,65 @@
 @import "tailwindcss";
+@config "../tailwind.config.ts";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  *, *::before, *::after {
+    border-radius: 0px !important;
+  }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    @apply bg-background text-foreground text-base leading-relaxed font-sans antialiased;
+    background-image: url('/textures/brutalist-bg-pattern.svg');
+    background-repeat: repeat;
+    background-size: 400px 400px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display tracking-tight uppercase text-ink;
+  }
+
+  ::selection {
+    background-color: #FF4D00;
+    color: #EDEAE0;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-4 md:px-8 lg:px-16;
+  }
+
+  .section-spacing {
+    @apply py-section md:py-section-lg;
+  }
+
+  .brutalist-border {
+    border: 3px solid #111111;
+  }
+
+  .brutalist-shadow {
+    box-shadow: 6px 6px 0px 0px #111111;
+  }
+
+  .brutalist-interactive {
+    transition: transform 0.12s ease-out, box-shadow 0.12s ease-out;
+  }
+
+  .brutalist-interactive:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 2px 2px 0px 0px #111111;
+  }
+
+  .brutalist-interactive:active {
+    transform: translate(6px, 6px);
+    box-shadow: 0px 0px 0px 0px #111111;
+  }
 }

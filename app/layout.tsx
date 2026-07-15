@@ -1,20 +1,54 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Archivo_Black, Space_Mono } from "next/font/google";
+import PageTransition from "@/components/PageTransition";
+import { profile } from "@/data/content";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const archivoBlack = Archivo_Black({
+  variable: "--font-archivo-black",
   subsets: ["latin"],
+  weight: "400",
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  variable: "--font-space-mono",
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Personal portfolio",
+  title: `${profile.name} | ${profile.title}`,
+  description: profile.tagline,
+  openGraph: {
+    title: `${profile.name} | ${profile.title}`,
+    description: profile.tagline,
+    url: profile.github,
+    siteName: `${profile.name} Portfolio`,
+    images: [
+      {
+        url: `${profile.github}.png`,
+        width: 460,
+        height: 460,
+        alt: profile.name,
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${profile.name} | ${profile.title}`,
+    description: profile.tagline,
+    images: [`${profile.github}.png`],
+  },
 };
 
 export default function RootLayout({
@@ -25,9 +59,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${inter.variable} ${archivoBlack.variable} ${spaceMono.variable} h-full`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <PageTransition>{children}</PageTransition>
+      </body>
     </html>
   );
 }
