@@ -148,6 +148,7 @@ export const projects: Project[] = [
       "PostgreSQL",
     ],
     featured: false,
+    liveUrl: "https://vision-ai-delta.vercel.app/",
   },
 ];
 
