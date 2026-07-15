@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Archivo_Black, Space_Mono } from "next/font/google";
 import PageTransition from "@/components/PageTransition";
+import BackgroundPattern from "@/components/BackgroundPattern";
 import { profile } from "@/data/content";
 import "./globals.css";
 
@@ -62,6 +63,7 @@ export default function RootLayout({
       className={`${inter.variable} ${archivoBlack.variable} ${spaceMono.variable} h-full`}
     >
       <body className="min-h-full flex flex-col">
+        <BackgroundPattern />
         <PageTransition>{children}</PageTransition>
       </body>
     </html>
