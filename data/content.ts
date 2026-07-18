@@ -107,6 +107,7 @@ export const projects: Project[] = [
       "Vercel",
     ],
     featured: true,
+    liveUrl: "https://after8-jet.vercel.app/",
   },
   {
     title: "CineVerse — Movie Streaming Web App",
