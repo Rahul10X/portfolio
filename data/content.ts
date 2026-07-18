@@ -130,11 +130,12 @@ export const projects: Project[] = [
     featured: false,
   },
   {
-    title: "FitTrack Support Platform",
+    title: "FitTrack Landing Page",
     description:
       "Help-center web application for FAQs, guides, and user support, with ticket management and JWT-authenticated APIs.",
     stack: ["Next.js", "Tailwind CSS", "FastAPI", "PostgreSQL"],
     featured: false,
+    liveUrl: "https://fittrack-landing-page-azure.vercel.app/",
   },
   {
     title: "VisionSafe — AI-Powered Public Security Monitoring",
